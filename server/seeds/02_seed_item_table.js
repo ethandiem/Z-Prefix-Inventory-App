@@ -26,7 +26,7 @@ exports.seed = async function(knex) {
     {user_id: 2, item_name: 'Destruct-Inator', description: 'Causes massive destruction to anything in its path.', quantity: 3},
     {user_id: 2, item_name: 'Mustache-Inator', description: 'Gives mustaches to everyone in the Tri-State Area.', quantity: 8},
     {user_id: 2, item_name: 'Sloth-attract-Inator', description: 'Attracts sloths to any given location.', quantity: 7},
-    {user_id: 3, item_name: 'Organic Kibble', description: 'High-quality, grain-free food for a healthy pet diet.', quantity: 50},
+    {user_id: 3, item_name: 'Organic Kibble', description: 'High-quality, grain-free food formulated for optimal nutrition, promoting a shiny coat, strong muscles, and overall well-being for your beloved pet.', quantity: 50},
     {user_id: 3, item_name: 'Chew Toy', description: 'Durable rubber toy designed to keep pets entertained and reduce stress.', quantity: 30},
     {user_id: 3, item_name: 'Cat Scratching Post', description: 'Sturdy post covered in sisal to satisfy cat scratching needs.', quantity: 15},
     {user_id: 3, item_name: 'Aquarium Starter Kit', description: 'Complete set with a tank, filter, and decorations for fish enthusiasts.', quantity: 10},

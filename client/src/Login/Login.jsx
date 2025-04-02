@@ -11,6 +11,8 @@ function Login() {
   const { userID, setUserID } = useContext(UserContext);
   const navigate = useNavigate();
 
+  // setUserID("");
+  // console.log(userID)
 
 const handleLogin = async (e) => {
   e.preventDefault();
@@ -22,36 +24,36 @@ const handleLogin = async (e) => {
 
   } try {
 
-  const res = await fetch("http://localhost:3001/login", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json",
-  },
-  body: JSON.stringify({ username, password }),
-});
+    const res = await fetch("http://localhost:3001/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ username: username.trim().toLowerCase(), password: password }),
+    });
 
-const data = await res.json();
+    const data = await res.json();
 
-if (res.ok) {
-  setLoginSuccess(true);
-  setUserID(data.user.id);
-  setLoginFailed(false);
-  console.log("Login successful:", data);
-  navigate(`/Items/${data.user.id}`);
-} else {
-  setLoginFailed(true);
-  setLoginSuccess(false);
-}
-} catch (error) {
-console.error("Error during login:", error);
-setLoginFailed(true);
-setLoginSuccess(false);
-}
+    if (res.ok) {
+      setLoginSuccess(true);
+      setUserID(data.user.id);
+      setLoginFailed(false);
+      console.log("Login successful:", data);
+      navigate(`/Items/User/${data.user.id}`);
+    } else {
+      setLoginFailed(true);
+      setLoginSuccess(false);
+    }
+  } catch (error) {
+    console.error("Error during login:", error);
+    setLoginFailed(true);
+    setLoginSuccess(false);
+  }
 };
 
 
-	return (
-	<>
+return (
+  <>
     <h1>Login</h1>
     <form onSubmit={handleLogin}>
       {loginFailed && <p className="failed">Login failed. Please try again.</p>}

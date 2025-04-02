@@ -209,49 +209,30 @@ app.post('/items', async (req, res) => {
 	}
 });
 
-app.patch('/items', async(req, res) => {
-	const id = parseInt(req.body.id)
-	const { user_id, item_name, description, quantity } = req.body
+app.patch('/items', async (req, res) => {
+  const { id, item_name, description, quantity } = req.body;
 
-	if (!id || typeof id !== "number") {
-		return res.status(400).json({ error: 'Item ID is required and must be a number' });
-}
+  if (!id) {
+    return res.status(400).json({ error: "Item ID is required" });
+  }
 
-// Build the `updates` object dynamically
-const updates = {};
-if (user_id && typeof user_id === "number" && !isNaN(user_id)) {
-		updates.user_id = user_id;
-}
-if (item_name && typeof item_name === "string" && item_name.trim() !== '') {
-		updates.item_name = item_name;
-}
-if (description && typeof description === "string" && description.trim() !== '') {
-		updates.description = description;
-}
-if (quantity && typeof quantity === "number" && !isNaN(quantity)) {
-		updates.quantity = quantity;
-}
+  const updates = {};
+  if (item_name) updates.item_name = item_name;
+  if (description) updates.description = description;
+  if (quantity) updates.quantity = quantity;
 
-	// removing undefined values to only keep the columns we want to p
-	if (Object.keys(updates).length === 0) {
-		return res.status(400).json({ error: 'No valid fields provided for update' });
-}
-	// TODO type check name
-	try {
-			const patch = await knex('item')
-				.where('id', id)
-				.update(updates);
-
-			if (patch == 1){
-					res.status(201).json({message: `Patch for item ${id} was successful`})
-			} else {
-					res.status(404).json({error: `Could not patch item ${id}`})
-			}
-	} catch (error) {
-			console.log(error)
-			res.status(500).json({error: 'Internal Server Error'})
-	}
-})
+  try {
+    const updated = await knex('item').where({ id }).update(updates);
+    if (updated) {
+      res.status(200).json({ message: "Item updated successfully" });
+    } else {
+      res.status(404).json({ error: "Item not found" });
+    }
+  } catch (error) {
+    console.error("Error updating item:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 
 app.delete('/items', async (req, res) => {
 	const id = parseInt(req.body.id)
@@ -275,6 +256,21 @@ app.delete('/items', async (req, res) => {
 	}
 })
 
+app.delete('/items/:id', async (req, res) => {
+	const { id } = req.params;
+
+	try {
+			const del = await knex('item').where({ id }).del();
+			if (del) {
+					res.status(200).json({message: `Item successfully deleted`})
+			} else {
+					res.status(404).json({message: `Could not find Item to delete`})
+			}
+	} catch (error) {
+			res.status(500).json({message: 'Internal Server Error'})
+	}
+})
+
 app.post('/login', async (req, res) => {
   const { username, password } = req.body;
 
@@ -283,7 +279,9 @@ app.post('/login', async (req, res) => {
   }
 
   try {
-    const user = await knex('user').where({ username, password }).first();
+    const user = await knex('user').whereRaw('LOWER(username) = ?', [username.toLowerCase()])
+		.andWhere({ password })
+		.first();
 
     if (user) {
       res.status(200).json({ message: "Login successful", user });

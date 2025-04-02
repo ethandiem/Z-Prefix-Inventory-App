@@ -1,0 +1,16 @@
+.items-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #494949;
+  width: 1400px;
+  box-sizing: border-box;
+  color: white ;
+}
+
+.items-container:hover {
+  background-color: #313131;
+}
