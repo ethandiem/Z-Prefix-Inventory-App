@@ -1,6 +1,6 @@
 # Inventory Management Application
 
-### About The App
+### About This App
 
 This is an application designed to help those in need of visual and digital organization. Whether you're an individual who frequently loses track of items or an inventory manager who needs to keep tabs on the items you're in charge of, this app meets all those needs. As an unauthenticated visitor, you can view all the items in the database created by users. As an authenticated user, you can add new items to your inventory and track them on a dashboard. You are also able to edit and delete items from your inventory as you please!
 
@@ -28,12 +28,14 @@ Ensure you have the following installed:
 ```
 ### 3. Create a File called .env and add the following:
 
+```sh
 CLIENT_PORT=
 SERVER_PORT=
 DATABASE_PORT=
 USER_NAME=
 USER_PASSWORD=
 DATABASE_NAME=
+```
 
 Fill in the values to the right of the equal sign to your liking. Ensure that the port numbers in the first three values are integers between 0 and 655535. To keep it simple, I recommend using the default postgres credentials along with a database name of "database." Please ensure you have nothing else running on the ports you chose. All fields must be filled!
 
