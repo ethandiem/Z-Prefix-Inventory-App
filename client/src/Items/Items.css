@@ -1,14 +1,20 @@
 .items-container {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  padding: 10px;
+  padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #494949;
   width: 1400px;
   box-sizing: border-box;
   color: white ;
+}
+
+.items-page-container {
+  margin-top: 60px;
+  margin-bottom: 20px;
 }
 
 .items-container:hover {

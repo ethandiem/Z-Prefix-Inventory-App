@@ -1,0 +1,14 @@
+.sign-up-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  text-align: center;
+}
+
+.login-from-sign-up {
+    font-size: 1.5rem;
+    margin-top: 100px;
+}

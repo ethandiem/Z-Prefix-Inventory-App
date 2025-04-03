@@ -5,6 +5,9 @@
 
 .editing {
   display: flex;
+  width: 1350px;
+  height: 50px;
+  justify-content: space-between;
 }
 
 .item-container {
@@ -56,8 +59,29 @@
   padding: 5px 10px;
   cursor: pointer;
   width: 1350px;
+  font-size: 20px;
 }
 
 .delete:hover {
   background-color: #e60000;
+}
+
+.cancel-edit {
+  width: 700px;
+  margin-bottom: 40px;
+}
+
+.save {
+  width: 700px;
+  margin-bottom: 40px;
+}
+
+.add {
+  width: 700px;
+  margin-bottom: 40px;
+
+}
+
+.intro {
+  margin-top: 70px;
 }

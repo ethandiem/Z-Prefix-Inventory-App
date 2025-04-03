@@ -99,7 +99,7 @@ function Items() {
     <p>Error: {error}</p>
   ) : (
     <>
-    <h1>Hi {itemsAsUserData.user.first_name} {itemsAsUserData.user.last_name}!</h1>
+    <h1 className = "intro" >Hi {itemsAsUserData.user.first_name} {itemsAsUserData.user.last_name}!</h1>
     <ul>
     {itemsAsUserData.items && itemsAsUserData.items.length > 0 ? (
       itemsAsUserData.items.map((item, index) => (
@@ -150,11 +150,11 @@ function Items() {
       <p>No items found.</p>
     )}
   </ul>
-    <button onClick = {handleEditToggle}>{isEditing ? "Cancel" : "Edit"}</button>
-    {isEditing && <button onClick = {handleSave}>Save</button>}
-    {!isEditing && <Link to = {`/Items/${userID}/Add`}><button>Add Item</button></Link>}
-    {!isEditing && <Link to = '/Items'><button>All Items by All Managers</button></Link>}
-    {!isEditing && <Link to = "/"><button onClick={() => {setUserID('')}} className = "login-button">Sign Out</button></Link>}
+    <button className = "cancel-edit" onClick = {handleEditToggle}>{isEditing ? "Cancel" : "Edit"}</button>
+    {isEditing && <button className = "save" onClick = {handleSave}>Save</button>}
+    {!isEditing && <Link to = {`/Items/${userID}/Add`}><button className = "add">Add Item</button></Link>}
+    {/* {!isEditing && <Link to = '/Items'><button>All Items by All Managers</button></Link>} */}
+    {/* {!isEditing && <Link to = "/"><button onClick={() => {setUserID('')}} className = "sign-out-button">Sign Out</button></Link>} */}
   </>
   )}
   </>

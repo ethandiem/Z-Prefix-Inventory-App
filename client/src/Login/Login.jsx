@@ -54,6 +54,7 @@ const handleLogin = async (e) => {
 
 return (
   <>
+  <div className = "login-screen">
     <h1>Login</h1>
     <form onSubmit={handleLogin}>
       {loginFailed && <p className="failed">Login failed. Please try again.</p>}
@@ -76,7 +77,8 @@ return (
       </div>
       <button type = "submit" className = "login-button">Login</button>
     </form>
-      <Link to = "/SignUp">Don't have an Account? Sign Up Here</Link>
+      <Link to = "/SignUp" className = "sign-up-login">Don't have an Account? Sign Up Here</Link>
+  </div>
   </>
 	)
 }

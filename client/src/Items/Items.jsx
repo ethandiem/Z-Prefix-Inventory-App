@@ -14,20 +14,21 @@ function Items() {
 						return res.json()
 				})
 				.then((data) => {
-					console.log("Fetched items data:", data);
+						console.log("Fetched items data:", data);
 					setLoading(false)
 					setAllItems(data)
 				})
 				.catch((error) => {
 					setLoading(false);
 					setError(error.message);
-					console.error('Error fetching data:', error);
+						console.error('Error fetching data:', error);
 		});
 	}, []);
 
 	return (
 	<>
-			<Link to = "/"><button>Home</button></Link>
+			{/* <Link to = "/"><button>Home</button></Link> */}
+		<div className = "items-page-container">
 		{allItems.length > 0 ? (
 			allItems.map((item) => (
 				<Link to = {`/Items/${item.id}`} key={item.id}>
@@ -41,6 +42,7 @@ function Items() {
   ) : (
 		<p>No Items found.</p>
   )}
+	</div>
   </>
 	)
 }

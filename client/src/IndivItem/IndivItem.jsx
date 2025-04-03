@@ -36,10 +36,10 @@ function IndivItem() {
       ) : !item ? (
         <p>Loading...</p>
       ) : (
-        <div>
-          <h1>{item.item_name}</h1>
-          <p>Description: {item.description}</p>
-          <p>Quantity: {item.quantity}</p>
+        <div className = "specific-item-container">
+          <h1 className = "specific-item-name">{item.item_name}</h1>
+          <p className = "specific-item-description">Description: {item.description}</p>
+          <p className = "specific-item-quantity">Quantity: {item.quantity}</p>
           <button onClick={backButton}>Back</button>
         </div>
       )}

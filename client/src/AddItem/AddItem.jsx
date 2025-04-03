@@ -63,11 +63,11 @@ const addItem = (e) => {
 
 return (
   <>
-    <h1>Add Item</h1>
       <form onSubmit={addItem}>
       {addItemFailed && <p className="failed">Item add failed. Please try again later.</p>}
       {addItemSuccess && <p className="success">Item Add Successful!</p>}
         <div>
+          <h1 className = "title-add">Add Item</h1>
           <input
             type="text"
             placeholder="Item Name"
@@ -91,9 +91,9 @@ return (
             onChange={(e) => setQuantity(e.target.value)}
           />
         </div>
-        <button type="submit" className="sign-up-button">Add</button>
+        <button type="submit" className="add">Add</button>
     </form>
-    <button onClick={backButton}>Back</button>
+    <button onClick={backButton} className = "back">Back</button>
   </>
   )
 }

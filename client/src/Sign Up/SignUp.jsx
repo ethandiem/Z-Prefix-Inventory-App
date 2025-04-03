@@ -58,6 +58,7 @@ function SignUp() {
 
 	return (
 	<>
+    <div className = "sign-up-screen">
       <h1>Sign Up</h1>
       <form onSubmit={addUser}>
       {signUpFailed && <p className="failed">Sign Up failed. Please try again later.</p>}
@@ -96,7 +97,8 @@ function SignUp() {
         </div>
         <button type="submit" className="sign-up-button">Sign Up!</button>
     </form>
-      <Link to = "/Login">Already have an Account? Login Here</Link>
+      <Link to = "/Login" className = "login-from-sign-up">Already have an Account? Login Here</Link>
+  </div>
   </>
 	)
 }
