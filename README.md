@@ -6,6 +6,12 @@ This is an application designed to help those in need of visual and digital orga
 
 ## Run Locally On Your Machine
 
+### If Your're Using Your Own Database Ensure The Naming Convention is Like The Following:
+
+![items picture](img/readme_items.png)
+
+![items picture](img/Readme_users.png)
+
 ### Initial Requirements
 
 Ensure you have the following installed:
