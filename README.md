@@ -8,7 +8,11 @@ This is an application designed to help those in need of visual and digital orga
 
 ### If Your're Using Your Own Database Ensure The Naming Convention is Like The Following:
 
+For items table:
+
 ![items picture](img/readme_items.png)
+
+For users table:
 
 ![items picture](img/Readme_users.png)
 
@@ -73,6 +77,20 @@ npm run dev --prefix ./server
 
 ```sh
 docker compose up --build
+```
+
+### 5. Migrate and Seed Data:
+
+```sh
+npx knex migrate:rollback
+```
+
+```sh
+npx knex migrate:latest
+```
+
+```sh
+npx knex seed:run
 ```
 
 ## Issues You may Run In To
