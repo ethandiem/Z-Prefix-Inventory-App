@@ -69,17 +69,19 @@
 .cancel-edit {
   width: 700px;
   margin-bottom: 40px;
+  border-radius: 0;
 }
 
 .save {
   width: 700px;
   margin-bottom: 40px;
+  border-radius: 0;
 }
 
 .add {
   width: 700px;
   margin-bottom: 40px;
-
+  border-radius: 0;
 }
 
 .intro {
